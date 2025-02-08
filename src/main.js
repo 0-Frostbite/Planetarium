@@ -1,5 +1,3 @@
-import * as THREE from 'three';
-    
 const NavBar = document.getElementById("navbar")
 NavBar.addEventListener("mouseover",function() {
     NavBar.style.color = '#ff0000';
