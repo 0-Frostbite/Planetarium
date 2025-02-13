@@ -2,26 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gruppo&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Planets</title>
   </head>
-  <body class="font-sans text-white bg-neutral-950">
-    <header class="bg-linear-[90deg,black_0%,white_50%,black_100%] pb-px">
-      <div class="flex justify-between py-3 text-4xl bg-neutral-950">
-        <div id="navbar" class="px-4 hover:cursor-pointer">&#9679;</div>
-        <div class="">Planetarium</div>
-        <div class="px-4 hover:cursor-pointer">&#9675;</div>
-        <!-- <div class="px-1.5 text-4xl">&#9679;</div> -->
+
+  <body class="font-[Gruppo] text-white bg-radial from-slate-900 to-stone-950">
+    <header class="flex justify-between text-4xl text-center font-bold p-5">
+      <div id="navbar">
+        <button class="transition duration-500 hover:cursor-pointer">X</button>
+        <div
+          id="navbar-menu"
+          class="hidden absolute flex flex-col justify-evenly"
+        >
+          <div class="text-[20px] font-bold rounded-full border-2 border-black py-2 hover:border-white hover:cursor-pointer"><img />Mercury</div>
+        </div>
+      </div>
+      <div>Planetarium</div>
+      <div>
+        <button id="darkmode" class="transition duration-500 rotate-0 hover:cursor-pointer">
+          X
+        </button>
       </div>
     </header>
-    <main class="min-h-300"><div id="scene"></div></main>
-    <footer
-      class="text-center text-md m-2.5 pt-px bg-linear-[90deg,black_10%,gray_50%,black_90%]"
-    >
-      <div class="pt-2.5 bg-black text-gray-300">by rijulpaul</div>
-    </footer>
+    <section id="scene" class="flex justify-center"></section>
+    <footer class="text-center text-lg font-light py-4">by rijulpaul</footer>
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/three.js"></script>
   </body>

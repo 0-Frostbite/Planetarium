@@ -1,12 +1,17 @@
-const NavBar = document.getElementById("navbar")
-NavBar.addEventListener("mouseover",function() {
-    NavBar.style.color = '#ff0000';
+const navbar = document.getElementById("navbar");
+const navbarmenu = document.getElementById("navbar-menu");
+
+navbar.addEventListener("mouseenter", function () {
+  navbarmenu.classList.toggle("hidden");
 });
-NavBar.addEventListener("mouseout",function() {
-    NavBar.style.color = '#ffffff';
+navbar.addEventListener("mouseleave", function () {
+  navbarmenu.classList.toggle("hidden");
 });
 
-const ColorMode = document.getElementById("colormode")
-ColorMode.addEventListener("click",function() {
-    
+const darkmode = document.getElementById("darkmode");
+let rotation = 0;
+
+darkmode.addEventListener("click", function () {
+  rotation = rotation === 0 ? 180 : 0;
+  darkmode.style.transform = `rotate(${rotation}deg)`;
 });
