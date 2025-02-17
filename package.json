@@ -1,12 +1,15 @@
 {
   "name": "planet",
+  "homepage": "https://0-Frostbite.github.io/Planetarium",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
   },
   "devDependencies": {
     "vite": "^6.1.0"
