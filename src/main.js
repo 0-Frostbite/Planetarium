@@ -1,3 +1,4 @@
+// toggle navigation bar
 const navbar = document.getElementById("navbar");
 const navbarmenu = document.getElementById("navbar-menu");
 
@@ -8,6 +9,7 @@ navbar.addEventListener("mouseleave", function () {
   navbarmenu.classList.toggle("hidden");
 });
 
+// toggle dark mode
 const darkmode = document.getElementById("darkmode");
 let rotation = 0;
 
