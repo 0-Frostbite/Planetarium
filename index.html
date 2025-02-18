@@ -14,6 +14,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <title>Planets</title>
   </head>
 
@@ -54,6 +55,18 @@
       class="max-h-[95vh] flex justify-center bg-radial from-black to-40% to-black"
     ></section>
     <footer class="text-center text-lg font-light py-2">by rijulpaul</footer>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.173.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module">
+      import three from "https://cdn.jsdelivr.net/npm/three@0.173.0/+esm";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.min.js"></script>
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/three.js"></script>
   </body>

@@ -1,3 +1,4 @@
+import three from 'https://cdn.jsdelivr.net/npm/three@0.173.0/+esm'
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
