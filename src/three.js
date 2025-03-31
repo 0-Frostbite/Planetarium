@@ -1,9 +1,8 @@
-import three from 'https://cdn.jsdelivr.net/npm/three@0.173.0/+esm'
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 import Planets from "./planets";
-import canvasTexture from "./texture";
+import { Texture } from "./texture";
 
 // setup scene, camera and renderer
 const padding = 0;
@@ -17,28 +16,14 @@ camera.position.z = 120;
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerWidth / screenRatio);
 renderer.setAnimationLoop(animate);
-renderer.setClearColor(0x000000, 0);
+renderer.setClearColor(0xffffff, 0);
 document.getElementById("scene").append(renderer.domElement);
 
 // setup Orbitalcontrols
 const controls = new OrbitControls(camera, renderer.domElement);
 
-//hdri
-// const loader = new THREE.RGBELoader();
-// loader.setDataType(THREE.HalfFloatType);
-// loader.load("./public/space1.hdr", (texture) => {
-  // texture.mapping = THREE.EquirectangularReflectionMapping;
-
-  // Set HDRI as environment map
-  // scene.background = texture; // Set as background
-  // scene.environment = texture; // Set as environment for lighting
-
-  // Adjust exposure (optional)
-  // renderer.toneMappingExposure = 1.0;
-// });
-
 // setup geometry and material
-const gradientTexture = new THREE.CanvasTexture(canvasTexture);
+const gradientTexture = new THREE.CanvasTexture(Texture(true));
 const sphereGeometry = new THREE.SphereGeometry(1, 24, 24);
 const sphereMaterial = new THREE.MeshBasicMaterial({
   color: 0xffffff,
@@ -93,6 +78,12 @@ for (let i in Planets) {
   Sun.add(Planets[i].path.mesh);
 }
 
+//give the planets a random offset
+for (let Planet in Planets) {
+  let rand = Math.random() * 170732710.9488;
+  move(Planets[Planet], rand);
+}
+
 // setup animation loop
 function animate() {
   renderer.setSize(window.innerWidth, window.innerWidth / screenRatio);
@@ -102,12 +93,12 @@ function animate() {
   }
 }
 
-function move(Planet) {
-  Planet.rotation += Planet.orbitalVel;
+function move(Planet, multiplier = 1) {
+  Planet.rotation += Planet.orbitalVel * multiplier;
   Planet.mesh.position.set(
-    Math.sin(Planet.rotation * timeScale) * getDistance(Planet),
+    Math.sin(Planet.rotation * timeScale * multiplier) * getDistance(Planet),
     0,
-    Math.cos(Planet.rotation * timeScale) * getDistance(Planet),
+    Math.cos(Planet.rotation * timeScale * multiplier) * getDistance(Planet),
   );
 }
 

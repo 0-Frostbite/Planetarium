@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
 
@@ -11,19 +11,44 @@
       rel="stylesheet"
     />
 
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <title>Planets</title>
   </head>
 
-  <body class="font-[Gruppo] text-white bg-black">
+  <body class="font-[Gruppo] text-black dark:text-white bg-white dark:bg-black">
     <header
       class="fixed flex justify-between text-4xl text-center font-bold p-5 w-full"
     >
       <div id="navbar">
-        <button class="transition duration-500 hover:cursor-pointer">X</button>
+        <button
+          class="transition duration-500 hover:cursor-pointer hover:rotate-90"
+        >
+          <svg
+            version="1.1"
+            id="Icons"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 32 32"
+            xml:space="preserve"
+            height="42"
+            width="42"
+            fill="none"
+            stroke="#ffffff"
+          >
+            <circle class="st0" cx="16" cy="16" r="3" />
+            <circle class="st0" cx="25" cy="7" r="2" />
+            <circle class="st0" cx="15" cy="24" r="2" />
+            <path
+              class="st0"
+              d="M13,23.4c-2.9-1.2-5-4.1-5-7.4c0-4.4,3.6-8,8-8s8,3.6,8,8c0,4.1-3.1,7.5-7,7.9"
+            />
+            <path
+              class="st0"
+              d="M26.5,8.3c1.6,2.2,2.5,4.8,2.5,7.7c0,7.2-5.8,13-13,13S3,23.2,3,16S8.8,3,16,3c2.9,0,5.5,0.9,7.7,2.5"
+            />
+          </svg>
+        </button>
         <ul
           id="navbar-menu"
           class="hidden absolute flex flex-col justify-evenly text-[20px] py-2 font-bold hover:cursor-pointer"
@@ -55,18 +80,6 @@
       class="max-h-[95vh] flex justify-center bg-radial from-black to-40% to-black"
     ></section>
     <footer class="text-center text-lg font-light py-2">by rijulpaul</footer>
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js",
-          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.173.0/examples/jsm/"
-        }
-      }
-    </script>
-    <script type="module">
-      import three from "https://cdn.jsdelivr.net/npm/three@0.173.0/+esm";
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.min.js"></script>
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/three.js"></script>
   </body>
